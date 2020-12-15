@@ -1,8 +1,10 @@
 <script lang="ts">
 	import "./index.scss";
-	import { Navbar } from "../../containers/index"
+	import { Navbar, Hero, Feature } from "../../containers/index"
 </script>
 
 <div>
 	<Navbar />	
+	<Hero />
+	<Feature />
 </div>
