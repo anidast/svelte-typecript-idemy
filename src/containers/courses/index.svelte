@@ -2,7 +2,7 @@
 	import "./index.scss";
 	import type { Course } from "../../types/course.type";
 
-	let courseList: Course[];
+	let courseList: Course[] = [];
 	const getcourses = (async () => {
       const response = await fetch('http://localhost:1337/courses/', {
         method: "GET"
