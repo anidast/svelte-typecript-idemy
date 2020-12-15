@@ -1,7 +1,8 @@
 <script lang="ts">
 	import "./index.scss";
+	import type { Feature } from "../../types/feature.type";
 
-	let featureList = [];
+	let featureList: Feature[];
 	const getstudents = (async () => {
       const response = await fetch('http://localhost:1337/features/', {
         method: "GET"
