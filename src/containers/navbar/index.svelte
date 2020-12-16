@@ -31,7 +31,7 @@
 	
   </script>
   
-  <nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-transparent is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
 	<div class="navbar-brand py-4">
 	  <a class="navbar-item has-text-black is-uppercase is-size-4 mx-5" href="/">
 		<strong>IDEMY</strong>
