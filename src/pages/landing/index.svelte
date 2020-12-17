@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "./index.scss";
-	import { Navbar, Hero, Feature, Courses } from "../../containers/index"
+	import { Navbar, Hero, Feature, Courses, Feedbacks } from "../../containers/index"
 </script>
 
 <div>
@@ -8,4 +8,5 @@
 	<Hero />
 	<Feature />
 	<Courses />
+	<Feedbacks />
 </div>

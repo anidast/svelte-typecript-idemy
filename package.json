@@ -8,6 +8,7 @@
     "validate": "svelte-check"
   },
   "devDependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
@@ -26,6 +27,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@types/glidejs": "^1.0.30",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.1",
     "sirv-cli": "^1.0.0",
