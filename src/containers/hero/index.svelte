@@ -7,7 +7,7 @@ import { Hero } from "..";
 <section id="hero" class="hero is-fullheight"style="background-image: url({"hero.jpg"});">
 	<div class="hero-body">
 	  <div class="container has-text-centered">
-		<h1 class="title is-size-2 is-family-primary has-text-weight-bold has-text-black">
+		<h1 class="title is-size-2 is-family-primary has-text-weight-bold has-text-black mt-6">
 			Choose the Right Course for Learning
 		</h1>
 		<h2 class="subtitle has-text-black has-text-weight-semibold">
