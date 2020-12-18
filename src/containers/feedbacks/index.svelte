@@ -36,7 +36,7 @@
   });
 </script>
 
-<section>
+<section class="my-6">
 	<div class="columns is-vcentered my-6">
 		<div class="column is-two-fifths px-6 mx-6">
 			<div class="glide">

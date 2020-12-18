@@ -10,11 +10,16 @@
       let responseJson = await response.json();
 	  courseList = await responseJson;
 	  console.log(courseList);
-    })();
+	})();
+	
+	const formatRupiah = (money) => {
+     return new Intl.NumberFormat('id-ID'
+     ).format(money);
+  }
 </script>
 
 <section>
-	<div class="container my-4 px-6">
+	<div class="container my-6 px-6">
 		<div class="has-text-centered py-6">
 			<p class="title is-3">Our Courses</p>
 			<p class="subtitle is-6">
@@ -33,7 +38,8 @@
 					</div>
 					<div class="card-content">
 						<div class="media-content">
-							<p class="title is-4 mb-5 pb-3">{course.name}</p>
+							<p class="title is-5 has-text-link has-text-weight-bold mb-2">{"Rp. " + formatRupiah(course.price)}</p>
+							<p class="title is-4 has-text-weight-bold mb-5 pb-3">{course.name}</p>
 							<p class="subtitle is-6">{course.description}</p>
 						</div>
 					</div>
@@ -41,5 +47,6 @@
 			</div>
 			{/each}
 		</div>
+		<center><button class="button is-info is-rounded has-text-weight-bold my-3">See All Courses</button></center>
 	</div>
 </section>
