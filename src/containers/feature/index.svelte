@@ -13,8 +13,8 @@
     })();
 </script>
 
-<section>
-	<div class="container my-4">
+<section id="features">
+	<div class="container mb-4 pt-6">
 		<div class="has-text-centered py-6">
 			<p class="title is-3">How we help our students</p>
 			<p class="subtitle is-6">

@@ -49,10 +49,10 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
 	<div class="navbar-start is-size-5 has-text-weight-medium">
-	  <a class="navbar-item mx-2" href="/">Home</a>
-	  <a class="navbar-item mx-2" href="/">About</a>
-	  <a class="navbar-item mx-2" href="/">Courses</a>
-	  <a class="navbar-item mx-2" href="/">Contact</a>
+	  <a class="navbar-item mx-2" href="#hero">Home</a>
+	  <a class="navbar-item mx-2" href="#features">Features</a>
+	  <a class="navbar-item mx-2" href="#courses">Courses</a>
+	  <a class="navbar-item mx-2" href="#feedbacks">Feedbacks</a>
 	</div>
 	<div class="navbar-end">
 	  <div class="navbar-item">

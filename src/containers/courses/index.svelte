@@ -18,8 +18,8 @@
   }
 </script>
 
-<section>
-	<div class="container my-6 px-6">
+<section id="courses">
+	<div class="container pt-6 px-6">
 		<div class="has-text-centered py-6">
 			<p class="title is-3">Our Courses</p>
 			<p class="subtitle is-6">

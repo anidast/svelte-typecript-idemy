@@ -3,7 +3,8 @@ import { Hero } from "..";
 
 	import "./index.scss";
 </script>
-<section class="hero is-fullheight"style="background-image: url({"hero.jpg"});">
+
+<section id="hero" class="hero is-fullheight"style="background-image: url({"hero.jpg"});">
 	<div class="hero-body">
 	  <div class="container has-text-centered">
 		<h1 class="title is-size-2 is-family-primary has-text-weight-bold has-text-black">

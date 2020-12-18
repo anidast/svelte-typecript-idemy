@@ -36,7 +36,10 @@
   });
 </script>
 
-<section class="my-6">
+<section class="pt-6" id="feedbacks">
+	<div class="has-text-centered pt-6">
+		<p class="title is-3">What Our Client Say</p>	
+	</div>
 	<div class="columns is-vcentered my-6">
 		<div class="column is-two-fifths px-6 mx-6">
 			<div class="glide">
