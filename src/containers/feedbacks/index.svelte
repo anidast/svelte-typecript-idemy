@@ -20,7 +20,7 @@
 	  card += `
 	  <li class="glide__slide has-text-centered">
 		<p class="subtitle is-5">${'"' + feed.words + '"'}</p>
-		<center><figure class="image is-64x64">
+		<center><figure class="image is-96x96">
 			<img class="is-rounded" src=${'http://localhost:1337' + feed.photo.url} alt=${feed.name} />
 		</figure></center>
 		<p class="title is-5">${feed.name}</p>
