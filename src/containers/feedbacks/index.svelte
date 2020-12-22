@@ -3,11 +3,30 @@
 	import type { Feedback } from "../../types/feedback.type";
 	import { onMount } from "svelte";
 	import Glide from "@glidejs/glide";
+	import { token } from "../../stores";
 
   onMount(async() => {
+	const responses = await fetch("http://localhost:1337/auth/local", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				identifier: "admin@mail.com",
+				password: "adminadmin",
+			}),
+		});
+		let res = await responses.json();
+		console.log(res);
+		$token = res.jwt;
+		
 	let feedbackList: Feedback[] = [];
+	console.log($token);
 	const response = await fetch('http://localhost:1337/feedbacks/', {
-	method: "GET"
+	method: "GET",
+	headers: {
+				Authorization: 'Bearer ' + $token,
+			}
 	});
 	let responseJson = await response.json();
 	feedbackList = await responseJson;
