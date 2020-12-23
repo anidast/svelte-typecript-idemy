@@ -1,6 +1,10 @@
 <script lang="ts">
 	import "./index.scss";
 	import { onMount } from "svelte";
+	import { token } from "../../stores";
+	import { link } from "svelte-routing";
+
+	let contentList = [];
   
 	onMount(async () => {
 	  // START JS NAVBAR HAMBURGER
@@ -28,6 +32,17 @@
 		});
 	  // END JS NAVBAR HAMBURGER
 	});
+
+	const pages = (async() => {
+		const response = await fetch("http://localhost:1337/content-type-builder/content-types/", {
+			method: "GET",
+			headers: {
+				Authorization: "Bearer " + $token,
+			},
+		});
+		let res = await response.json();
+		contentList = res.data;
+	})();
 	
   </script>
   
@@ -49,10 +64,12 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
 	<div class="navbar-start is-size-5 has-text-weight-medium">
-	  <a class="navbar-item mx-2" href="#hero">Home</a>
-	  <a class="navbar-item mx-2" href="#features">Features</a>
-	  <a class="navbar-item mx-2" href="#courses">Courses</a>
-	  <a class="navbar-item mx-2" href="#feedbacks">Feedbacks</a>
+	  <a class="navbar-item mx-2" href="/">Home</a>
+	  {#each contentList as content}
+		{#if (content.schema.kind === "singleType")}
+			<a class="navbar-item mx-2 is-capitalized" href={content.apiID} >{content.apiID}</a>
+		{/if}
+	  {/each}
 	</div>
 	<div class="navbar-end">
 	  <div class="navbar-item">
