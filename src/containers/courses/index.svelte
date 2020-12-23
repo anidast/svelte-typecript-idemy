@@ -2,23 +2,10 @@
 	import "./index.scss";
 	import type { Course } from "../../types/course.type";
 	import { token } from "../../stores";
-	import { onMount } from "svelte";
 
 	let courseList: Course[] = [];
-	onMount(async () => {
-		const responses = await fetch("http://localhost:1337/auth/local", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				identifier: "admin@mail.com",
-				password: "adminadmin",
-			}),
-		});
-		let res = await responses.json();
-		console.log(res);
-		$token = res.jwt;
+
+	const course = (async()=>{
 		const response = await fetch("http://localhost:1337/courses/", {
 			method: "GET",
 			headers: {
@@ -27,10 +14,7 @@
 		});
 		let responseJson = await response.json();
 		courseList = await responseJson;
-		console.log(courseList);
-
-		console.log("Bearer " + $token);
-	});
+	})();
 
 	const formatRupiah = (money) => {
 		return new Intl.NumberFormat("id-ID").format(money);

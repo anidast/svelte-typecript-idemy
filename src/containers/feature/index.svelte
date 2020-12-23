@@ -2,38 +2,19 @@
 	import "./index.scss";
 	import type { Feature } from "../../types/feature.type";
 	import { token } from "../../stores";
-	import { onMount } from "svelte";
 
 	let featureList: Feature[] = [];
 
-	export let jwt: string;
-
-	onMount(async () => {
-		const responses = await fetch("http://localhost:1337/auth/local", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				identifier: "admin@mail.com",
-				password: "adminadmin",
-			}),
-		});
-		let res = await responses.json();
-		console.log(res);
-		$token = res.jwt;
-
+	const feat = (async() => {
 		const response = await fetch("http://localhost:1337/features/", {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + $token,
 			},
 		});
-		let responseJson = await response.json();
-		featureList = await responseJson;
-		console.log("Bearer " + $token);
-		console.log(featureList);
-	});
+		featureList = await response.json();
+	})();
+	
 </script>
 
 <section id="features">
