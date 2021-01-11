@@ -20,7 +20,6 @@
 			},
 		});
 		$page = await response.json();
-		console.log($page.hero.url);
 	})();
 </script>
 
