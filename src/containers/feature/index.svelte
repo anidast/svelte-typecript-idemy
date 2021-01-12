@@ -32,7 +32,7 @@
 					<center>
 						<figure class="image is-64x64">
 							<img
-								src={'http://localhost:1337' + feature.icon.url}
+								src={feature.icon.url}
 								alt={feature.title} />
 						</figure>
 					</center>

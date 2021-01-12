@@ -52,6 +52,7 @@
 		<strong>IDEMY</strong>
 	  </a>
 	  <a
+	  href="/#"
 	  role="button"
 	  class="navbar-burger burger"
 	  aria-label="menu"
@@ -64,10 +65,10 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
 	<div class="navbar-start is-size-5 has-text-weight-medium">
-	  <a class="navbar-item mx-2" href="/">Home</a>
+	  <a class="navbar-item mx-2" href="http://localhost:5000">Home</a>
 	  {#each contentList as content}
 		{#if (content.schema.kind === "singleType")}
-			<a class="navbar-item mx-2 is-capitalized" href={content.apiID} >{content.apiID}</a>
+			<a class="navbar-item mx-2 is-capitalized" href="http://localhost:5000/${content.apiID}" >{content.apiID}</a>
 		{/if}
 	  {/each}
 	</div>

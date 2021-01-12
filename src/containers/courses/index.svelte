@@ -5,7 +5,7 @@
 
 	let courseList: Course[] = [];
 
-	const course = (async()=>{
+	const course = (async () => {
 		const response = await fetch("http://localhost:1337/courses/", {
 			method: "GET",
 			headers: {
@@ -37,7 +37,7 @@
 						<div class="card-image">
 							<figure class="image is-5by3">
 								<img
-									src={'http://localhost:1337' + course.image.url}
+									src={course.image.url}
 									alt={course.name} />
 							</figure>
 						</div>
@@ -47,11 +47,12 @@
 									class="title is-5 has-text-link has-text-weight-bold mb-2">
 									{'Rp. ' + formatRupiah(course.price)}
 								</p>
-								<p
-									class="title is-4 has-text-weight-bold mb-5 pb-3">
+								<a
+									href={'course/' + course.id}
+									class="title is-4 has-text-weight-bold">
 									{course.name}
-								</p>
-								<p class="subtitle is-6">
+								</a>
+								<p class="subtitle is-6 mt-4">
 									{course.description}
 								</p>
 							</div>
