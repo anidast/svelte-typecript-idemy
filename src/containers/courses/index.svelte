@@ -48,7 +48,7 @@
 									{'Rp. ' + formatRupiah(course.price)}
 								</p>
 								<a
-									href={'course/' + course.id}
+									href="course/${course.id}"
 									class="title is-4 has-text-weight-bold">
 									{course.name}
 								</a>

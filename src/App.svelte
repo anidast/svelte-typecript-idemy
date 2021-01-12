@@ -9,7 +9,7 @@
 <Router url="{url}">
   <div>
     <Route path="/" component="{Landing}" />
-    <Route path="/:path" component="{Page}" />
+    <Route path="/:apiID" component="{Page}" />
     <Route path="/course/:id" component="{Course}" />
   </div>
 </Router>
