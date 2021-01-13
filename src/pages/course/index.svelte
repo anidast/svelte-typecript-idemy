@@ -9,7 +9,7 @@
 	let course: Course;
 
 	const pages = (async () => {
-		const response = await fetch("http://localhost:1337/courses/" + id, {
+		const response = await fetch(`http://localhost:1337/courses/${id}`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + $token,

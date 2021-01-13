@@ -13,7 +13,7 @@
 	// let page:any;
 
 	const pages = (async() => {
-		const response = await fetch('http://localhost:1337/' + apiID, {
+		const response = await fetch(`http://localhost:1337/${apiID}`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + $token,
