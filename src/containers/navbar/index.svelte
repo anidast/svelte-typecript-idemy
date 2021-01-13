@@ -68,7 +68,7 @@
 	  <a class="navbar-item mx-2" href="http://localhost:5000">Home</a>
 	  {#each contentList as content}
 		{#if (content.schema.kind === "singleType")}
-			<a class="navbar-item mx-2 is-capitalized" href="http://localhost:5000/${content.apiID}" >{content.apiID}</a>
+			<a class="navbar-item mx-2 is-capitalized" href="http://localhost:5000/${content.apiID}" >{content.name}</a>
 		{/if}
 	  {/each}
 	</div>
