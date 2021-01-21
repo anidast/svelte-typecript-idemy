@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "./index.scss";
 	import type { Course } from "../../types/course.type";
-	import { token } from "../../stores";
+	import { getJwt } from "../../stores";
 
 	let courseList: Course[] = [];
 
@@ -9,11 +9,12 @@
 		const response = await fetch("http://localhost:1337/courses/", {
 			method: "GET",
 			headers: {
-				Authorization: "Bearer " + $token,
+				Authorization: "Bearer " + getJwt(),
 			},
 		});
 		let responseJson = await response.json();
 		courseList = await responseJson;
+		console.log(courseList);
 	})();
 
 	const formatRupiah = (money) => {

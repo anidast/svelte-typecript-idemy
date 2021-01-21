@@ -11,10 +11,10 @@
 </script>
 
 <div>
-	<Navbar />
-	<Hero />
-	<Feature />
-	<Courses />
-	<Feedbacks />
-	<Footer />
+		<Navbar />
+		<Hero />
+		<Feature />
+		<Courses />
+		<Feedbacks />
+		<Footer />
 </div>

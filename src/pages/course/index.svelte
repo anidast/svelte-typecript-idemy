@@ -2,7 +2,7 @@
 	import "./index.scss";
 	import { Navbar, Cover, Content, Footer } from "../../containers/index";
 	import type { Course } from "../../types/course.type";
-	import { token } from "../../stores";
+	import { getJwt } from "../../stores";
 
 	export let id: string;
 
@@ -12,7 +12,7 @@
 		const response = await fetch(`http://localhost:1337/courses/${id}`, {
 			method: "GET",
 			headers: {
-				Authorization: "Bearer " + $token,
+				Authorization: "Bearer " + getJwt(),
 			},
 		});
 		course = await response.json();

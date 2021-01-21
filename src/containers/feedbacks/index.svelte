@@ -3,14 +3,14 @@
 	import type { Feedback } from "../../types/feedback.type";
 	import { onMount } from "svelte";
 	import Glide from "@glidejs/glide";
-	import { token } from "../../stores";
+	import { getJwt } from "../../stores";
 
 	onMount(async () => {
 		let feedbackList: Feedback[] = [];
 		const response = await fetch("http://localhost:1337/feedbacks/", {
 			method: "GET",
 			headers: {
-				Authorization: "Bearer " + $token,
+				Authorization: "Bearer " + getJwt(),
 			},
 		});
 		let responseJson = await response.json();

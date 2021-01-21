@@ -6,7 +6,7 @@
 		Content,
 		Footer
 	} from "../../containers/index";
-	import { token, page } from "../../stores";
+	import { token, page, getJwt } from "../../stores";
 
 	export let apiID: string;
 
@@ -16,7 +16,7 @@
 		const response = await fetch(`http://localhost:1337/${apiID}`, {
 			method: "GET",
 			headers: {
-				Authorization: "Bearer " + $token,
+				Authorization: "Bearer " + getJwt(),
 			},
 		});
 		$page = await response.json();
