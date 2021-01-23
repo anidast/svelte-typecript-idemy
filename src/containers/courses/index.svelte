@@ -6,7 +6,7 @@
 	let courseList: Course[] = [];
 
 	const course = (async () => {
-		const response = await fetch("http://localhost:1337/courses/", {
+		const response = await fetch("http://localhost:1337/strapi/v1/courses/", {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

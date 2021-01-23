@@ -29,6 +29,7 @@
   "dependencies": {
     "@types/glidejs": "^1.0.30",
     "axios": "^0.21.0",
+    "jwt-client": "^0.2.1",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.1",
     "sirv-cli": "^1.0.0",

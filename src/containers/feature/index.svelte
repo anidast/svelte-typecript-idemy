@@ -1,8 +1,8 @@
 <script lang="ts">
   import "./index.scss";
   import type { Feature } from "../../types/feature.type";
-  import { getJwt } from "../../stores";
-import { onMount } from "svelte";
+  import { getJwt, token } from "../../stores";
+  import { onMount } from "svelte";
 
   let featureList: Feature[] = [];
   let jwt = getJwt();
@@ -11,11 +11,11 @@ import { onMount } from "svelte";
   	const response = await fetch("http://localhost:1337/features/", {
   		method: "GET",
   		headers: {
-  			Authorization: "Bearer " + jwt,
+  			Authorization: "Bearer " + $token,
   		},
   	});
   	featureList = await response.json();
-  	console.log(getJwt());
+  	console.log($token);
   })();
 
   // const response = fetch("http://localhost:1337/features/", {
