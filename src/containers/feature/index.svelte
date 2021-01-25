@@ -1,11 +1,9 @@
 <script lang="ts">
   import "./index.scss";
   import type { Feature } from "../../types/feature.type";
-  import { getJwt, token } from "../../stores";
-  import { onMount } from "svelte";
+  import { token } from "../../stores";
 
   let featureList: Feature[] = [];
-  let jwt = getJwt();
 
   const feat = (async() => {
   	const response = await fetch("http://localhost:1337/features/", {
@@ -15,19 +13,8 @@
   		},
   	});
   	featureList = await response.json();
-  	console.log($token);
   })();
 
-  // const response = fetch("http://localhost:1337/features/", {
-  //   method: "GET",
-  //   headers: {
-  //     Authorization: "Bearer " + jwt,
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     featureList = data;
-  //   });
 </script>
 
 <section id="features">

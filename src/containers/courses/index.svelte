@@ -14,7 +14,6 @@
 		});
 		let responseJson = await response.json();
 		courseList = await responseJson;
-		console.log(courseList);
 	})();
 
 	const formatRupiah = (money) => {

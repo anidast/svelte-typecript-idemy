@@ -2,47 +2,48 @@
   import "index.scss";
   import { Landing, Page, Course } from "./pages";
   import { Router, Route } from "svelte-routing";
-  import { token } from "./stores";
+  import { token, getJwt } from "./stores";
 
   export let url = "";
 
-  // const pages = (async () => {
-  // 	const response = await fetch("http://localhost:1337/auth/local", {
-  // 		method: "POST",
-  // 		headers: {
-  // 			"Content-Type": "application/json",
-  // 		},
-  // 		body: JSON.stringify({
-  // 			identifier: "admin",
-  // 			password: "adminadmin",
-  // 		}),
-  // 	});
-  // 	let res = await response.json();
-  // 	$token = res.jwt;
-  // 	console.log($token);
-  // })();
-
-  // const response = fetch("http://localhost:1337/auth/local", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     identifier: "admin",
-  //     password: "adminadmin",
-  //   }),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     $token = data.jwt;
-  //     console.log($token);
-  //   });
+  async function createJwt() {
+    const response = await fetch("http://localhost:1337/auth/local", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        identifier: "admin",
+        password: "adminadmin",
+      }),
+    });
+    let data = await response.json();
+    let jwtToken = await data.jwt;
+    var d = new Date();
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
+    document.cookie = "jwt=" + jwtToken + ";expires=" + d.toString();
+    console.log(data);
+    $token = jwtToken;
+    return jwtToken;
+  }
 </script>
 
-<Router {url}>
-  <div>
-    <Route path="/" component={Landing} />
-    <Route path="/:apiID" component={Page} />
-    <Route path="/course/:id" component={Course} />
-  </div>
-</Router>
+{#if getJwt()}
+  <Router {url}>
+    <div>
+      <Route path="/" component={Landing} />
+      <Route path="/:apiID" component={Page} />
+      <Route path="/course/:id" component={Course} />
+    </div>
+  </Router>
+{:else}
+  {#await createJwt() then jwt}
+    <Router {url}>
+      <div>
+        <Route path="/" component={Landing} />
+        <Route path="/:apiID" component={Page} />
+        <Route path="/course/:id" component={Course} />
+      </div>
+    </Router>
+  {/await}
+{/if}
