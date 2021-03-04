@@ -6,21 +6,24 @@
 		Content,
 		Footer
 	} from "../../containers/index";
-	import { token, page, getJwt } from "../../stores";
+	import { token, page, pages, getJwt } from "../../stores";
+import { afterUpdate, beforeUpdate, onMount } from "svelte";
+import { afterPageLoad } from "@roxi/routify"
 
 	export let apiID: string;
 
 	// let page:any;
 
-	const pages = (async() => {
-		const response = await fetch(`http://localhost:1337/${apiID}`, {
+	$afterPageLoad(async() => {
+		let response = await fetch(`http://localhost:1337/${apiID}`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),
 			},
 		});
 		$page = await response.json();
-	})();
+		console.log($page);
+	});
 </script>
 
 <div>

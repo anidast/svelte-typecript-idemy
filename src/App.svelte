@@ -1,12 +1,19 @@
 <script lang="ts">
   import "index.scss";
   import { Landing, Page, Course } from "./pages";
-  import { Router, Route } from "svelte-routing";
+  // import { Router, Route } from "svelte-routing";
+  import { Router } from "@roxi/routify";
+  import { routes } from "../.routify/routes";
   import { token, getJwt } from "./stores";
 
-  export let url = "";
+  // export let url = "";
 
   async function createJwt() {
+    let jwtToken: string= getJwt();
+    if (jwtToken){
+      $token = jwtToken;
+      return jwtToken;
+    }
     const response = await fetch("http://localhost:1337/auth/local", {
       method: "POST",
       headers: {
@@ -18,32 +25,15 @@
       }),
     });
     let data = await response.json();
-    let jwtToken = await data.jwt;
+    jwtToken = await data.jwt;
     var d = new Date();
     d.setTime(d.getTime() + 24 * 60 * 60 * 1000);
     document.cookie = "jwt=" + jwtToken + ";expires=" + d.toString();
-    console.log(data);
     $token = jwtToken;
     return jwtToken;
   }
 </script>
 
-{#if getJwt()}
-  <Router {url}>
-    <div>
-      <Route path="/" component={Landing} />
-      <Route path="/:apiID" component={Page} />
-      <Route path="/course/:id" component={Course} />
-    </div>
-  </Router>
-{:else}
-  {#await createJwt() then jwt}
-    <Router {url}>
-      <div>
-        <Route path="/" component={Landing} />
-        <Route path="/:apiID" component={Page} />
-        <Route path="/course/:id" component={Course} />
-      </div>
-    </Router>
-  {/await}
-{/if}
+{#await createJwt() then jwt}
+  <Router {routes} />
+{/await}
