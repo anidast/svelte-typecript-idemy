@@ -6,7 +6,7 @@
 		Content,
 		Footer
 	} from "../../containers/index";
-	import { token, page, pages, getJwt } from "../../stores";
+	import { strapiUrl, page, getJwt } from "../../stores";
 import { afterUpdate, beforeUpdate, onMount } from "svelte";
 import { afterPageLoad } from "@roxi/routify"
 
@@ -15,7 +15,7 @@ import { afterPageLoad } from "@roxi/routify"
 	// let page:any;
 
 	$afterPageLoad(async() => {
-		let response = await fetch(`http://localhost:1337/${apiID}`, {
+		let response = await fetch( strapiUrl + apiID, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

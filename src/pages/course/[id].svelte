@@ -2,14 +2,14 @@
 	import "./index.scss";
 	import { Navbar, Cover, Content, Footer } from "../../containers/index";
 	import type { Course } from "../../types/course.type";
-	import { getJwt } from "../../stores";
+	import { strapiUrl, getJwt } from "../../stores";
 
 	export let id: string;
 
 	let course: Course;
 
 	const pages = (async () => {
-		const response = await fetch(`http://localhost:1337/courses/${id}`, {
+		const response = await fetch(`${strapiUrl}courses/${id}`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

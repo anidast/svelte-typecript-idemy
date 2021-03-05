@@ -1,12 +1,12 @@
 <script lang="ts">
 	import "./index.scss";
 	import type { Course } from "../../types/course.type";
-	import { getJwt } from "../../stores";
+	import { strapiUrl, getJwt } from "../../stores";
 
 	let courseList: Course[] = [];
 
 	const course = (async () => {
-		const response = await fetch("http://localhost:1337/strapi/v1/courses/", {
+		const response = await fetch(`${strapiUrl}strapi/v1/courses/`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

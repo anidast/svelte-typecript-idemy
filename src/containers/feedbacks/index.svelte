@@ -3,11 +3,11 @@
 	import type { Feedback } from "../../types/feedback.type";
 	import { onMount } from "svelte";
 	import Glide from "@glidejs/glide";
-	import { getJwt } from "../../stores";
+	import { strapiUrl, getJwt } from "../../stores";
 
 	onMount(async () => {
 		let feedbackList: Feedback[] = [];
-		const response = await fetch("http://localhost:1337/feedbacks/", {
+		const response = await fetch(`${strapiUrl}http://localhost:1337/feedbacks/`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

@@ -1,9 +1,9 @@
 import { Writable, writable } from 'svelte/store';
 
-// let token: Writable<string> = writable('');
 let token: Writable<string> = writable('');
 let page: Writable<any> = writable({});
 let pages: Writable<any[]> = writable([]);
+let strapiUrl: Writable<string> = writable('https://idemy.herokuapp.com/');
 let minioUrl: Writable<string> = writable('http://127.0.0.1:9000/minio/idemy/cms/');
 
 function getJwt(): string{
@@ -22,4 +22,4 @@ function getJwt(): string{
 	}
 }
 
-export { token, page, pages, minioUrl, getJwt };
+export { token, page, pages, strapiUrl, minioUrl, getJwt };

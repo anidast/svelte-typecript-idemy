@@ -1,12 +1,12 @@
 <script lang="ts">
   import "./index.scss";
   import type { Feature } from "../../types/feature.type";
-  import { token } from "../../stores";
+  import { strapiUrl, token } from "../../stores";
 
   let featureList: Feature[] = [];
 
   const feat = (async() => {
-  	const response = await fetch("http://localhost:1337/features/", {
+  	const response = await fetch(`${strapiUrl}features/`, {
   		method: "GET",
   		headers: {
   			Authorization: "Bearer " + $token,
