@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "index.scss";
   // import { Router, Route } from "svelte-routing";
   import { Router } from "@roxi/routify";
   import { routes } from "../.routify/routes";
@@ -13,7 +12,7 @@
       $token = jwtToken;
       return jwtToken;
     }
-    const response = await fetch(`${strapiUrl}auth/local`, {
+    const response = await fetch(`${$strapiUrl}auth/local`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

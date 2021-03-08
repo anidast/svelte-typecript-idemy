@@ -6,7 +6,7 @@
   let featureList: Feature[] = [];
 
   const feat = (async() => {
-  	const response = await fetch(`${strapiUrl}features/`, {
+  	const response = await fetch(`${$strapiUrl}features/`, {
   		method: "GET",
   		headers: {
   			Authorization: "Bearer " + $token,

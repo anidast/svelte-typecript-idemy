@@ -15,7 +15,7 @@ import { afterPageLoad } from "@roxi/routify"
 	// let page:any;
 
 	$afterPageLoad(async() => {
-		let response = await fetch( strapiUrl + apiID, {
+		let response = await fetch( $strapiUrl + apiID, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

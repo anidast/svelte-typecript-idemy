@@ -7,6 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import postcss from 'rollup-plugin-postcss';
+import cleaner from 'rollup-plugin-cleaner';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -66,8 +67,13 @@ export default {
 		}),
 		commonjs(),
 		typescript({
-			sourceMap: !production,
+			sourceMap: true,
 			inlineSources: !production
+		}),
+		cleaner({
+			targets: [
+			  'public/build/'
+			]
 		}),
 
 		// In dev mode, call `npm run start` once

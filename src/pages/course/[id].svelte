@@ -9,7 +9,7 @@
 	let course: Course;
 
 	const pages = (async () => {
-		const response = await fetch(`${strapiUrl}courses/${id}`, {
+		const response = await fetch(`${$strapiUrl}courses/${id}`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

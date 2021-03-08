@@ -7,7 +7,7 @@
 
 	onMount(async () => {
 		let feedbackList: Feedback[] = [];
-		const response = await fetch(`${strapiUrl}http://localhost:1337/feedbacks/`, {
+		const response = await fetch(`${$strapiUrl}feedbacks/`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),

@@ -35,7 +35,7 @@
 	});
 
 	const getPages = (async() => {
-		const response = await fetch(`${strapiUrl}content-type-builder/content-types/`, {
+		const response = await fetch(`${$strapiUrl}content-type-builder/content-types/`, {
 			method: "GET",
 			headers: {
 				Authorization: "Bearer " + getJwt(),
