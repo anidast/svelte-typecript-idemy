@@ -14,6 +14,7 @@
 		});
 		let responseJson = await response.json();
 		courseList = await responseJson;
+		console.log(courseList);
 	})();
 
 	const formatRupiah = (money) => {
@@ -31,6 +32,7 @@
 			</p>
 		</div>
 		<div class="columns is-multiline px-6">
+			{console.log(courseList)}
 			{#each courseList as course}
 				<div class="column">
 					<div class="card">
