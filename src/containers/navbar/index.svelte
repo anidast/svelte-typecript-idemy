@@ -48,7 +48,7 @@
   
   <nav class="navbar is-transparent is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
 	<div class="navbar-brand py-4">
-	  <a class="navbar-item has-text-black is-uppercase is-size-4 mx-5" href="http://localhost:5000/landing">
+	  <a class="navbar-item has-text-black is-uppercase is-size-4 mx-5" href="https://idemy.vercel.app/landing">
 		<strong>IDEMY</strong>
 	  </a>
 	  <a
@@ -65,7 +65,7 @@
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
 	<div class="navbar-start is-size-5 has-text-weight-medium">
-	  <a class="navbar-item mx-2" href="http://localhost:5000/landing">Home</a>
+	  <a class="navbar-item mx-2" href="https://idemy.vercel.app/landing">Home</a>
 	  {#each contentList as content}
 		{#if (content.schema.kind === "singleType")}
 			<a class="navbar-item mx-2 is-capitalized" href={$url(`/${content.apiID}`)} >{content.schema.name}</a>
